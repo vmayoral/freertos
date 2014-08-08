@@ -57,6 +57,11 @@ qemudbg: main.bin $(QEMU_STM32)
 		-gdb tcp::3333 -S \
 		-kernel main.bin
 
+gdb: main.bin $(QEMU_STM32)
+	$(QEMU_STM32) -M stm32-p103 \
+		-gdb tcp::3333 -S \
+		-kernel main.elf
+
 qemuauto: main.bin
 	bash emulate.sh main.bin
 
